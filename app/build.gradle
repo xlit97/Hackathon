@@ -57,4 +57,10 @@ dependencies {
     //Dagger Hilt
     implementation "com.google.dagger:hilt-android:2.28-alpha"
     kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    // Material
+    def material_version = "1.2.1"
+    implementation "com.google.android.material:material:$material_version"
+    // Fragment
+    def fragment_version = "1.2.5"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 }

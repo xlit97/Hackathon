@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_fragment_one">
     <fragment
         android:id="@+id/nav_fragment_one"
         android:name="com.futureyakutia.hackathon.ui.FirstFragmentTest"
@@ -14,14 +15,22 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_fragment_two"
-        android:name="com.futureyakutia.hackathon.ui.FirstFragmentTest"
+        android:name="com.futureyakutia.hackathon.ui.SecondFragmentTest"
         android:label="Nav Fragment Two"
-        tools:layout="@layout/second_fragment"/>
+        tools:layout="@layout/second_fragment">
+        <action
+            android:id="@+id/two_to_one"
+            app:destination="@id/nav_fragment_one"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
 
 </navigation>

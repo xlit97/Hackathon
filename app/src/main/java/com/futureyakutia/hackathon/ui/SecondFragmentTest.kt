@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
 
-class FirstFragmentTest : NavHostFragment() {
+class SecondFragmentTest : NavHostFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.first_fragment, container, false)
+        return inflater.inflate(R.layout.second_fragment, container, false)
     }
 }
