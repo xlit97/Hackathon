@@ -18,8 +18,10 @@ class MainActivity : AppCompatActivity() {
         bottom_nav.setOnNavigationItemSelectedListener {
             if (bottom_nav.selectedItemId != it.itemId) {
                 when(it.itemId) {
-                    R.id.menu_home -> navController.navigate(R.id.two_to_one)
-                    R.id.menu_chat -> navController.navigate(R.id.one_to_two)
+                    R.id.menu_home -> navController.navigate(R.id.go_to_home)
+                    R.id.menu_chat -> navController.navigate(R.id.go_to_help)
+                    R.id.menu_invest -> navController.navigate(R.id.go_to_investigate)
+                    R.id.menu_package -> navController.navigate(R.id.go_to_package)
                 }
             }
             true
