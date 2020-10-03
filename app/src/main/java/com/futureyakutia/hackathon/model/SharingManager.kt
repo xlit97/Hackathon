@@ -16,9 +16,9 @@ class SharingManager() {
         val contentUri = FileProvider.getUriForFile(context, AUTHORITY, file)
         val intent = Intent(Intent.ACTION_SEND)
         intent.putExtra(Intent.EXTRA_STREAM, contentUri)
-        intent.setType("application/docx")
+        intent.type = "application/*"
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        context.startActivity(intent)
+        context.startActivity(Intent.createChooser(intent, "Send to"))
     }
 
     fun sharePhoto(context: Context, photo: Uri) {
