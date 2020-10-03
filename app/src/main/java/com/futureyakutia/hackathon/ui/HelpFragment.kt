@@ -91,6 +91,7 @@ class HelpFragment : MvpAppCompatFragment() {
 
     private fun setupChooseQuestion(question: Question.ChooseQuestion) {
         help_layout_edittext_answer.visibility = View.GONE
+        help_layout_button_continue.visibility = View.GONE
         help_layout_linearlayout_variant_holder.visibility = View.VISIBLE
         help_layout_button_variant_a.text = question.answers.first().text
         help_layout_button_variant_b.text = question.answers.last().text
@@ -98,6 +99,7 @@ class HelpFragment : MvpAppCompatFragment() {
 
     private fun setupWriteQuestion() {
         help_layout_linearlayout_variant_holder.visibility = View.GONE
+        help_layout_button_continue.visibility = View.VISIBLE
         help_layout_edittext_answer.visibility = View.VISIBLE
     }
 
