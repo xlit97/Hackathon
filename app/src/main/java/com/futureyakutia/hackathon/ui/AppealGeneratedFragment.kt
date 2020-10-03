@@ -1,11 +1,11 @@
 package com.futureyakutia.hackathon.ui
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
 import com.futureyakutia.hackathon.appeal.generator.AppealGenerator
@@ -40,7 +40,8 @@ class AppealGeneratedFragment : NavHostFragment() {
             val document = appealGenerator.generateDocx()
             appealGenerator.saveDocumentInDownloads(document)
             val appealId = appealGenerator.getAppealId()
-            sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
+            //sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
+            sharingManager.sharePhoto(requireContext(), ContextCompat.getDrawable(requireContext(), R.drawable.share_image))
             // todo а после того как создадим шарим его share
         }
     }
