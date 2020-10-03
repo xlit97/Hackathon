@@ -94,18 +94,4 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
-
-//    // Poi
-//    def poi_version = "4.1.2"
-//    implementation "org.apache.poi:poi:$poi_version"
-//    implementation "org.apache.poi:poi-ooxml:$poi_version"
-//
-//    implementation group: 'stax', name: 'stax-api', version: '1.0.1'
-//    implementation group: 'stax', name: 'stax', version: '1.2.0'
-//
-//    implementation group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '3.1.0'
-//    implementation group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '4.1.2'
-
-
 }
