@@ -7,8 +7,10 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Environment
+import android.provider.MediaStore
 import androidx.core.content.FileProvider
 import com.futureyakutia.hackathon.R
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import javax.inject.Inject
@@ -21,26 +23,24 @@ class SharingManager @Inject constructor() {
         val contentUri = FileProvider.getUriForFile(context, "com.futureyakutia.hackathon.fileprovider", file)
         val intent = Intent(Intent.ACTION_SEND)
         intent.putExtra(Intent.EXTRA_STREAM, contentUri)
-        intent.setType("application/*")
+        intent.type = "application/*"
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         context.startActivity(Intent.createChooser(intent, "Send to"))
     }
 
     fun sharePhoto(context: Context, photo: Drawable?) {
         val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.share_image)
-        var path = "${Environment.getExternalStorageDirectory().path}/Download/share_image.jpg"
-        val file = File(path)
+        var path = "${Environment.getExternalStorageDirectory().path}/Download/share_image.jpeg"
         try {
-            val out = FileOutputStream(file)
+            val out = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
-            out.flush()
-            out.close()
+            path = MediaStore.Images.Media.insertImage(context.contentResolver, bitmap, "Share", null)
         } catch (e: Exception) {}
-        path = file.path
-        val bmpUri = Uri.parse("content:/$path")
+        val bmpUri = Uri.parse(path)
         val intent = Intent(Intent.ACTION_SEND)
         intent.putExtra(Intent.EXTRA_STREAM, bmpUri)
-        intent.setType("image/jpg")
+        intent.type = "image/*"
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         context.startActivity(Intent.createChooser(intent, "Send to"))
     }
 }
