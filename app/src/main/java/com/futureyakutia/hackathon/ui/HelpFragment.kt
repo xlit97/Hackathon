@@ -5,7 +5,6 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
 import com.futureyakutia.hackathon.appeal.Answer
 import com.futureyakutia.hackathon.appeal.Appeal
@@ -14,9 +13,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import moxy.MvpAppCompatFragment
 import kotlinx.android.synthetic.main.help_layout.*
 import java.util.ArrayDeque
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HelpFragment : MvpAppCompatFragment() {
+
+    @Inject
+    lateinit var appeal: Appeal
 
     val questionsHARDCODED = ArrayDeque(
         listOf(
@@ -30,8 +33,6 @@ class HelpFragment : MvpAppCompatFragment() {
     )
 
     var currentQuestion: Question? = null
-
-    val appeal: Appeal = Appeal()
 
     override fun onCreateView(
         inflater: LayoutInflater,
