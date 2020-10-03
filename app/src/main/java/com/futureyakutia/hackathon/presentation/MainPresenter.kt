@@ -1,20 +1,13 @@
 package com.futureyakutia.hackathon.presentation
 
-import com.arellomobile.mvp.InjectViewState
-import com.arellomobile.mvp.MvpPresenter
+import moxy.InjectViewState
+import moxy.MvpPresenter
 import javax.inject.Inject
 
 @InjectViewState
-class MainPresenter @Inject constructor(
+class MainPresenter @Inject constructor() : MvpPresenter<MainView>() {
 
-) : MvpPresenter<MainView>() {
-
-    override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
-        viewState.changeText("Checking za warudo!")
-    }
-
-    fun giveText() {
-        viewState.changeText("I've gived")
+    fun changeText() {
+        viewState.changeText("CHANGED!")
     }
 }

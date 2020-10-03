@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         private const val REQUEST_CODE_WRITE = 10
     }
 
-    val appeal = Appeal().apply {
+    private val appeal = Appeal().apply {
         with(animalAbuse) {
             userName = "Иванов Иван Иванович"
             caseDescriptionByUser = "Возвращаясь домой я наблюдал ужасную картину, то как гр. Петров измывался над бедной собакой. Сначала он бил ее палкой, затем тушил об нее окурки и никто ничего ему не сделал"
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             suspect = "Петров Петр Петрович"
         }
     }
-    val appealGenerator = AppealGenerator(appeal, this)
+    private val appealGenerator = AppealGenerator(appeal, this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

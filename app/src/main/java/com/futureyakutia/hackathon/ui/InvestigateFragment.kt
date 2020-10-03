@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
+import moxy.MvpAppCompatFragment
 
-class InvestigateFragment : NavHostFragment() {
+class InvestigateFragment : MvpAppCompatFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
 import dagger.hilt.android.AndroidEntryPoint
+import moxy.MvpAppCompatFragment
 
 @AndroidEntryPoint
-class HelpFragment : NavHostFragment() {
+class HelpFragment : MvpAppCompatFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
