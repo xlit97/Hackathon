@@ -1,7 +1,7 @@
 package com.futureyakutia.hackathon.appeal
 
-sealed class Answer(val text: String) {
+sealed class Answer {
 
-    open class Choice(text: String, val triggerAnswer: Boolean) : Answer(text)
-    open class Write(text: String, input: String) : Answer(text)
+    open class Choice(val text: String, val triggerAnswer: Boolean) : Answer()
+    open class Write(val input: String) : Answer()
 }

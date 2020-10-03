@@ -35,7 +35,7 @@ class AppealGenerator(private val appeal: Appeal, private val context: Context) 
 
         val paragraphs: List<XWPFParagraph> = document.paragraphs
         paragraphs.forEachIndexed { _, paragraph ->
-            paragraph.runs.forEachIndexed { index,  run ->
+            paragraph.runs.forEach {   run ->
                 when {
                     run.text().equals(AppealHolders.POLICE_STATION.holder, true) -> {
                         run.setText(TEXT_HOLDER_MEDIUM, 0)
