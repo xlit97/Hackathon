@@ -6,9 +6,9 @@
     app:startDestination="@id/nav_fragment_one">
     <fragment
         android:id="@+id/nav_fragment_one"
-        android:name="com.futureyakutia.hackathon.ui.FirstFragmentTest"
+        android:name="com.futureyakutia.hackathon.ui.HomeFragment"
         android:label="Nav Fragment One"
-        tools:layout="@layout/first_fragment">
+        tools:layout="@layout/home_layout">
         <action
             android:id="@+id/one_to_two"
             app:destination="@id/nav_fragment_two"
@@ -16,13 +16,16 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_fragment_one_to_nav_fragment_two"
+            app:destination="@id/nav_fragment_two" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_fragment_two"
-        android:name="com.futureyakutia.hackathon.ui.SecondFragmentTest"
+        android:name="com.futureyakutia.hackathon.ui.HelpFragment"
         android:label="Nav Fragment Two"
-        tools:layout="@layout/second_fragment">
+        tools:layout="@layout/help_layout">
         <action
             android:id="@+id/two_to_one"
             app:destination="@id/nav_fragment_one"

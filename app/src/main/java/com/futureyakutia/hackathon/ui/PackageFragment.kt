@@ -6,16 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class SecondFragmentTest : NavHostFragment() {
+class PackageFragment : NavHostFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.second_fragment, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.package_layout, container, false)
 }

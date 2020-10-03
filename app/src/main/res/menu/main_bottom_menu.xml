@@ -2,10 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_home"
-        android:icon="@null"
-        android:title="Домой" />
+        android:icon="@drawable/ic_paw"
+        android:title=""/>
+
     <item
         android:id="@+id/menu_chat"
-        android:icon="@null"
-        android:title="Чатик" />
+        android:icon="@drawable/ic_help"
+        android:title=""/>
+
+    <item
+        android:id="@+id/menu_invest"
+        android:icon="@drawable/ic_investigate"
+        android:title=""/>
+
+    <item
+        android:id="@+id/menu_package"
+        android:icon="@drawable/ic_package"
+        android:title=""/>
 </menu>

@@ -28,6 +28,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/main_bottom_menu"/>
+        app:menu="@menu/main_bottom_menu"
+        app:labelVisibilityMode="unlabeled"
+        tools:ignore="LayoutElementIdWrongNameDetector" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
