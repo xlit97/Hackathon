@@ -64,12 +64,10 @@ class HelpFragment : MvpAppCompatFragment() {
                 sendAnswer(answer)
             }
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val question = questionsHARDCODED.pop()
-        setupQuestion(question)
+        if (savedInstanceState == null) {
+            val question = questionsHARDCODED.pop()
+            setupQuestion(question)
+        }
     }
 
     private fun setupQuestion(question: Question) {
