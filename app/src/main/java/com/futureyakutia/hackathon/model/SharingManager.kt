@@ -12,7 +12,6 @@ import androidx.core.content.FileProvider
 import com.futureyakutia.hackathon.R
 import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.FileOutputStream
 import javax.inject.Inject
 
 class SharingManager @Inject constructor() {

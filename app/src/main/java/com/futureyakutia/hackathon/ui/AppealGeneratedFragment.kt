@@ -40,9 +40,9 @@ class AppealGeneratedFragment : NavHostFragment() {
             val document = appealGenerator.generateDocx()
             appealGenerator.saveDocumentInDownloads(document)
             val appealId = appealGenerator.getAppealId()
+            // todo решить, будем шарить фотку или док файл
             //sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
             sharingManager.sharePhoto(requireContext(), ContextCompat.getDrawable(requireContext(), R.drawable.share_image))
-            // todo а после того как создадим шарим его share
         }
     }
 }
