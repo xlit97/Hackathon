@@ -12,10 +12,10 @@ sealed class Question(val question: String, var isEnabled: Boolean = true) {
         private const val COMMITMENT_DATE = "Укажите дату проишествия(дд.мм.гггг)"
         private const val COMMITMENT_TIME = "Укажите время происшествия(чч:мм)"
         private const val COMMITMENT_PLACE = "Укажите место происшествия (адрес)"
-        private const val DO_YOU_KNOW_SUSPECT = "Вы знаете злоумышленника"
+        private const val DO_YOU_KNOW_SUSPECT = "Вы знаете злоумышленника?"
         private const val ENTER_SUSPECT_NAME = "Укажите ФИО злоумышленника (Или имя в Им. Падеже)"
         private const val CASE_DESCRIPTION = "Опишите, что знаете и видели в паре абзацев"
-        private const val CHILDREN_ARE_WITNESSES = "Это было в присутствии детей"
+        private const val CHILDREN_ARE_WITNESSES = "Это было в присутствии детей?"
     }
 
     open class WriteQuestion(question: String) : Question(question)
