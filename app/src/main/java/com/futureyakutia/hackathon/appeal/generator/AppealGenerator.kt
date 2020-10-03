@@ -100,4 +100,6 @@ class AppealGenerator(private val appeal: Appeal, private val context: Context) 
         fos.close()
         return newFile
     }
+
+    fun getAppealId() = appeal.animalAbuse.clause.id
 }

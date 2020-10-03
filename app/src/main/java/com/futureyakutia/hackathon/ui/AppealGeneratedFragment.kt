@@ -1,6 +1,7 @@
 package com.futureyakutia.hackathon.ui
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
 import com.futureyakutia.hackathon.appeal.generator.AppealGenerator
+import com.futureyakutia.hackathon.model.SharingManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.appeal_created_layout.*
 import javax.inject.Inject
@@ -17,6 +19,9 @@ class AppealGeneratedFragment : NavHostFragment() {
 
     @Inject
     lateinit var appealGenerator: AppealGenerator
+
+    @Inject
+    lateinit var sharingManager: SharingManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +39,8 @@ class AppealGeneratedFragment : NavHostFragment() {
         appeal_created_layout_textview_button_share.setOnClickListener {
             val document = appealGenerator.generateDocx()
             appealGenerator.saveDocumentInDownloads(document)
+            val appealId = appealGenerator.getAppealId()
+            sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
             // todo а после того как создадим шарим его share
         }
     }

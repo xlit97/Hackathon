@@ -37,10 +37,6 @@ class HomeFragment : MvpAppCompatFragment(), MainView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setClickListeners()
-    }
-
-    private fun setClickListeners() {
         first_text.setOnClickListener { presenter.changeText() }
     }
 
