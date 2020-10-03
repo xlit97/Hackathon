@@ -52,7 +52,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation files('libs\\poishadow-all.jar')
+    implementation files('libs/poishadow-all.jar')
 
     // Navigation
     def nav_version = "2.3.0"
