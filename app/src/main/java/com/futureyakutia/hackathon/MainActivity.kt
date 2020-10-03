@@ -7,12 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.NavHostFragment
-import com.futureyakutia.hackathon.appeal.Appeal
-import com.futureyakutia.hackathon.appeal.generator.AppealGenerator
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -20,20 +16,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val REQUEST_CODE_WRITE = 10
     }
-
-    private val appeal = Appeal().apply {
-        with(animalAbuse) {
-            userName = "Иванов Иван Иванович"
-            caseDescriptionByUser = "Возвращаясь домой я наблюдал ужасную картину, то как гр. Петров измывался над бедной собакой. Сначала он бил ее палкой, затем тушил об нее окурки и никто ничего ему не сделал"
-            childrenWitnesses = true
-            commitmentDate = "02.10.2020"
-            commitmentTime = "18:56"
-            commitmentPlace = "город Якутск, двор улицы пр. Ленина 1"
-            suspect = "Петров Петр Петрович"
-        }
-    }
-    private val appealGenerator = AppealGenerator(appeal, this)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +34,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
         if (checkWritePermission()) {
-            appealGenerator.getDocx()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE_WRITE);
         }
@@ -73,7 +54,6 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_WRITE && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            appealGenerator.getDocx()
         }
     }
 }
