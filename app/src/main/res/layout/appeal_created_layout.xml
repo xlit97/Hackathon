@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/lightYellowBackground"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/rectangle_rounded"
+        android:backgroundTint="@color/red">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="Отлично, ваше заявление сформировано!"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="48dp"
+            android:gravity="center"
+            android:textSize="18sp"
+
+            android:textColor="@color/white"
+            android:text="Вы можете его скачать себе и поделится в социальных сетях."/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginVertical="20dp"
+            android:src="@drawable/share_image"/>
+
+        <LinearLayout
+            android:id="@+id/appeal_created_layout_linearlayout_button_download"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginHorizontal="44dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="@drawable/rectangle_rounded"
+            android:backgroundTint="@color/purple">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/stat_sys_download"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/white"
+                android:text="Скачать сформированное заявление"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/appeal_created_layout_textview_button_share"
+            android:layout_width="195dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/rectangle_rounded"
+            android:backgroundTint="@color/purple"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/white"
+            android:text="ПОДЕЛИТЬСЯ"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,5 +1,6 @@
 package com.futureyakutia.hackathon.di
 
+import android.content.Context
 import com.futureyakutia.hackathon.appeal.Appeal
 import dagger.Module
 import dagger.Provides

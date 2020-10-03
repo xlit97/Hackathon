@@ -19,20 +19,10 @@ class AppealGenerator(private val appeal: Appeal, private val context: Context) 
         const val TEXT_HOLDER_SMALL = "_____________________"
     }
 
-
-    fun getDocx() {
+    fun generateDocx(): XWPFDocument {
         val fileIS = context.resources.openRawResource(R.raw.base_appeal)
-
-        val dir = Environment.getExternalStorageDirectory()
-        val newFile = File("${dir.path}/Download/appeal_${appeal.animalAbuse.clause.id}.docx")
-        if (!newFile.exists()) {
-            newFile.createNewFile()
-        }
         val document = XWPFDocument(fileIS)
         fileIS.close()
-
-        // Header должен быть пустым
-
         val paragraphs: List<XWPFParagraph> = document.paragraphs
         paragraphs.forEachIndexed { _, paragraph ->
             paragraph.runs.forEach {   run ->
@@ -96,8 +86,18 @@ class AppealGenerator(private val appeal: Appeal, private val context: Context) 
                 }
             }
         }
+        return document
+    }
+
+    fun saveDocumentInDownloads(document: XWPFDocument): File {
+        val dir = Environment.getExternalStorageDirectory()
+        val newFile = File("${dir.path}/Download/appeal_${appeal.animalAbuse.clause.id}.docx")
+        if (!newFile.exists()) {
+            newFile.createNewFile()
+        }
         val fos = FileOutputStream(newFile)
         document.write(fos)
         fos.close()
+        return newFile
     }
 }

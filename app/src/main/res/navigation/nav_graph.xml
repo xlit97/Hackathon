@@ -8,29 +8,39 @@
         android:id="@+id/nav_fragment_one"
         android:name="com.futureyakutia.hackathon.ui.HomeFragment"
         android:label="Nav Fragment One"
-        tools:layout="@layout/home_layout">
-    </fragment>
+        tools:layout="@layout/home_layout"/>
 
     <fragment
         android:id="@+id/nav_fragment_two"
         android:name="com.futureyakutia.hackathon.ui.HelpFragment"
         android:label="Nav Fragment Two"
         tools:layout="@layout/help_layout">
+        <action
+            android:id="@+id/go_to_appeal_created"
+            app:destination="@id/nav_fragment_appeal_created"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_appeal_created"
+        android:name="com.futureyakutia.hackathon.ui.AppealGeneratedFragment"
+        android:label="Appeal Created"
+        tools:layout="@layout/appeal_created_layout"/>
 
     <fragment
         android:id="@+id/nav_fragment_three"
         android:name="com.futureyakutia.hackathon.ui.InvestigateFragment"
         android:label="Nav Fragment Three"
-        tools:layout="@layout/investigate_layout">
-    </fragment>
+        tools:layout="@layout/investigate_layout"/>
 
     <fragment
         android:id="@+id/nav_fragment_four"
         android:name="com.futureyakutia.hackathon.ui.PackageFragment"
         android:label="Nav Fragment Four"
-        tools:layout="@layout/package_layout">
-    </fragment>
+        tools:layout="@layout/package_layout"/>
 
     <action
         android:id="@+id/go_to_home"

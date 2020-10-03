@@ -5,6 +5,7 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.futureyakutia.hackathon.R
 import com.futureyakutia.hackathon.appeal.Answer
 import com.futureyakutia.hackathon.appeal.Appeal
@@ -83,7 +84,7 @@ class HelpFragment : MvpAppCompatFragment() {
             if (questionsHARDCODED.isNotEmpty()) {
                 setupQuestion(questionsHARDCODED.pop())
             } else {
-                // todo go to sharing screen
+                navigateToShareScreen()
             }
         }
     }
@@ -126,7 +127,11 @@ class HelpFragment : MvpAppCompatFragment() {
         if (questionsHARDCODED.isNotEmpty()) {
             setupQuestion(questionsHARDCODED.pop())
         } else {
-            // todo go to docx generate
+            navigateToShareScreen()
         }
+    }
+
+    private fun navigateToShareScreen() {
+        findNavController().navigate(R.id.go_to_appeal_created)
     }
 }
