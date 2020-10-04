@@ -22,6 +22,12 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Уточните пожалуйста один момент" />
 
+    <DatePicker
+        android:id="@+id/datepicker"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <LinearLayout
         android:id="@+id/help_layout_linearlayout_variant_holder"
         android:layout_width="match_parent"

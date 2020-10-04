@@ -19,6 +19,7 @@ sealed class Question(val question: String, var isEnabled: Boolean = true) {
     }
 
     open class WriteQuestion(question: String) : Question(question)
+    open class TimeQuestion(question: String) : Question(question)
     open class ChooseQuestion(
         question: String,
         val answers: List<Answer.Choice> = listOf(
@@ -35,7 +36,7 @@ sealed class Question(val question: String, var isEnabled: Boolean = true) {
     object UserJob : WriteQuestion(USER_JOB)
 
     // Body
-    object CommitmentDate : WriteQuestion(COMMITMENT_DATE)
+    object CommitmentDate : TimeQuestion(COMMITMENT_DATE)
     object CommitmentTime : WriteQuestion(COMMITMENT_TIME)
     object CommitmentPlace : WriteQuestion(COMMITMENT_PLACE)
     object CaseDescription : WriteQuestion(CASE_DESCRIPTION)

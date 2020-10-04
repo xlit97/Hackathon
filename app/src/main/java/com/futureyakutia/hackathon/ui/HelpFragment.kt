@@ -70,6 +70,11 @@ class HelpFragment : MvpAppCompatFragment() {
                 val answer = Answer.Write(text)
                 sendAnswer(answer)
             }
+            if (mCurrentQuestion is Question.TimeQuestion) {
+                val text = "${datepicker.dayOfMonth}.${datepicker.month}.${datepicker.year}"
+                val answer = Answer.Write(text)
+                sendAnswer(answer)
+            }
         }
         if (savedInstanceState == null) {
             val question = questionsHARDCODED.pop()
@@ -84,6 +89,7 @@ class HelpFragment : MvpAppCompatFragment() {
             when (question) {
                 is Question.ChooseQuestion -> setupChooseQuestion(question)
                 is Question.WriteQuestion -> setupWriteQuestion()
+                is Question.TimeQuestion -> setupTimeQuestion()
             }
         } else {
             if (questionsHARDCODED.isNotEmpty()) {
@@ -97,6 +103,7 @@ class HelpFragment : MvpAppCompatFragment() {
     private fun setupChooseQuestion(question: Question.ChooseQuestion) {
         help_layout_edittext_answer.visibility = View.GONE
         help_layout_button_continue.visibility = View.GONE
+        datepicker.visibility = View.GONE
         help_layout_linearlayout_variant_holder.visibility = View.VISIBLE
         help_layout_button_variant_a.text = question.answers.first().text
         help_layout_button_variant_b.text = question.answers.last().text
@@ -104,8 +111,15 @@ class HelpFragment : MvpAppCompatFragment() {
 
     private fun setupWriteQuestion() {
         help_layout_linearlayout_variant_holder.visibility = View.GONE
+        datepicker.visibility = View.GONE
         help_layout_button_continue.visibility = View.VISIBLE
         help_layout_edittext_answer.visibility = View.VISIBLE
+    }
+
+    private fun setupTimeQuestion() {
+        help_layout_linearlayout_variant_holder.visibility = View.GONE
+        help_layout_edittext_answer.visibility = View.GONE
+        datepicker.visibility = View.VISIBLE
     }
 
     private fun sendAnswer(answer: Answer) {
