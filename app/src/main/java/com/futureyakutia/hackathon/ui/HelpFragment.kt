@@ -1,9 +1,11 @@
 package com.futureyakutia.hackathon.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import com.futureyakutia.hackathon.R
 import com.futureyakutia.hackathon.analytics.AnalyticsManager
@@ -48,6 +50,7 @@ class HelpFragment : MvpAppCompatFragment() {
         return inflater.inflate(R.layout.help_layout, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         help_layout_button_variant_a.setOnClickListener {
@@ -70,8 +73,13 @@ class HelpFragment : MvpAppCompatFragment() {
                 val answer = Answer.Write(text)
                 sendAnswer(answer)
             }
-            if (mCurrentQuestion is Question.TimeQuestion) {
+            if (mCurrentQuestion is Question.DateQuestion) {
                 val text = "${datepicker.dayOfMonth}.${datepicker.month}.${datepicker.year}"
+                val answer = Answer.Write(text)
+                sendAnswer(answer)
+            }
+            if (mCurrentQuestion is Question.TimeQuestion) {
+                val text = "${timepicker.hour}:${timepicker.minute}"
                 val answer = Answer.Write(text)
                 sendAnswer(answer)
             }
@@ -89,6 +97,7 @@ class HelpFragment : MvpAppCompatFragment() {
             when (question) {
                 is Question.ChooseQuestion -> setupChooseQuestion(question)
                 is Question.WriteQuestion -> setupWriteQuestion()
+                is Question.DateQuestion -> setupDateQuestion()
                 is Question.TimeQuestion -> setupTimeQuestion()
             }
         } else {
@@ -104,6 +113,7 @@ class HelpFragment : MvpAppCompatFragment() {
         help_layout_edittext_answer.visibility = View.GONE
         help_layout_button_continue.visibility = View.GONE
         datepicker.visibility = View.GONE
+        timepicker.visibility = View.GONE
         help_layout_linearlayout_variant_holder.visibility = View.VISIBLE
         help_layout_button_variant_a.text = question.answers.first().text
         help_layout_button_variant_b.text = question.answers.last().text
@@ -112,20 +122,32 @@ class HelpFragment : MvpAppCompatFragment() {
     private fun setupWriteQuestion() {
         help_layout_linearlayout_variant_holder.visibility = View.GONE
         datepicker.visibility = View.GONE
+        timepicker.visibility = View.GONE
         help_layout_button_continue.visibility = View.VISIBLE
         help_layout_edittext_answer.visibility = View.VISIBLE
+    }
+
+    private fun setupDateQuestion() {
+        help_layout_linearlayout_variant_holder.visibility = View.GONE
+        help_layout_edittext_answer.visibility = View.GONE
+        timepicker.visibility = View.GONE
+        datepicker.visibility = View.VISIBLE
     }
 
     private fun setupTimeQuestion() {
         help_layout_linearlayout_variant_holder.visibility = View.GONE
         help_layout_edittext_answer.visibility = View.GONE
-        datepicker.visibility = View.VISIBLE
+        timepicker.visibility = View.VISIBLE
+        datepicker.visibility = View.GONE
     }
 
     private fun sendAnswer(answer: Answer) {
         when (currentQuestion) {
             Question.CommitmentDate -> {
                 appeal.commitmentDate = (answer as Answer.Write).input
+            }
+            Question.CommitmentTime -> {
+                appeal.commitmentTime = (answer as Answer.Write).input
             }
             Question.CommitmentPlace -> {
                 appeal.commitmentPlace = (answer as Answer.Write).input

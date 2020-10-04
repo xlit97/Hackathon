@@ -19,6 +19,7 @@ sealed class Question(val question: String, var isEnabled: Boolean = true) {
     }
 
     open class WriteQuestion(question: String) : Question(question)
+    open class DateQuestion(question: String) : Question(question)
     open class TimeQuestion(question: String) : Question(question)
     open class ChooseQuestion(
         question: String,
@@ -36,8 +37,8 @@ sealed class Question(val question: String, var isEnabled: Boolean = true) {
     object UserJob : WriteQuestion(USER_JOB)
 
     // Body
-    object CommitmentDate : TimeQuestion(COMMITMENT_DATE)
-    object CommitmentTime : WriteQuestion(COMMITMENT_TIME)
+    object CommitmentDate : DateQuestion(COMMITMENT_DATE)
+    object CommitmentTime : TimeQuestion(COMMITMENT_TIME)
     object CommitmentPlace : WriteQuestion(COMMITMENT_PLACE)
     object CaseDescription : WriteQuestion(CASE_DESCRIPTION)
 

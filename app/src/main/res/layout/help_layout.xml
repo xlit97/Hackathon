@@ -24,7 +24,15 @@
 
     <DatePicker
         android:id="@+id/datepicker"
+        android:visibility="gone"
         android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TimePicker
+        android:id="@+id/timepicker"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
