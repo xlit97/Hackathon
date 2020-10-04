@@ -127,6 +127,9 @@ class HelpFragment : MvpAppCompatFragment() {
             Question.CommitmentDate -> {
                 appeal.commitmentDate = (answer as Answer.Write).input
             }
+            Question.CommitmentTime -> {
+                appeal.commitmentTime = (answer as Answer.Write).input
+            }
             Question.CommitmentPlace -> {
                 appeal.commitmentPlace = (answer as Answer.Write).input
             }
