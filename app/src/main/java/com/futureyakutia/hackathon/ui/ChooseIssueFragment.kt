@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.futureyakutia.hackathon.R
+import com.futureyakutia.hackathon.analytics.AnalyticsManager
+import com.futureyakutia.hackathon.analytics.EventsFirebase
 import com.futureyakutia.hackathon.appeal.Appeal
 import com.futureyakutia.hackathon.appeal.clauses.LawClause
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,6 +22,9 @@ class ChooseIssueFragment : MvpAppCompatFragment() {
 
     @Inject
     lateinit var appeal: Appeal
+
+    @Inject
+    lateinit var analytics: AnalyticsManager
 
     private val adapter: ChooseIssueAdapter = ChooseIssueAdapter()
 
@@ -40,6 +45,7 @@ class ChooseIssueFragment : MvpAppCompatFragment() {
             if (issues.isNotEmpty()) {
                 appeal.clearAllIssues()
                 appeal.addAllIssues(issues)
+                analytics.logEvent(EventsFirebase.START_COMPLAIN)
                 findNavController().navigate(R.id.go_to_questions)
             } else {
                 Toast.makeText(requireContext(), "Вы не выбрали проблему", Toast.LENGTH_SHORT)

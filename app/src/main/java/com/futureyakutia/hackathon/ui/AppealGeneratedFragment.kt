@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import com.futureyakutia.hackathon.R
+import com.futureyakutia.hackathon.analytics.AnalyticsManager
+import com.futureyakutia.hackathon.analytics.EventsFirebase
 import com.futureyakutia.hackathon.appeal.generator.AppealGenerator
 import com.futureyakutia.hackathon.model.SharingManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,6 +25,9 @@ class AppealGeneratedFragment : NavHostFragment() {
     @Inject
     lateinit var sharingManager: SharingManager
 
+    @Inject
+    lateinit var analytics: AnalyticsManager
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,6 +39,7 @@ class AppealGeneratedFragment : NavHostFragment() {
         appeal_created_layout_linearlayout_button_download.setOnClickListener {
             val document = appealGenerator.generateDocx()
             appealGenerator.saveDocumentInDownloads(document)
+            analytics.logEvent(EventsFirebase.DOWNLOAD_COMPLAIN)
             Toast.makeText(requireContext(), "Заявление загружено в /sdcard/Download", Toast.LENGTH_SHORT).show()
         }
         appeal_created_layout_textview_button_share.setOnClickListener {
@@ -42,6 +48,7 @@ class AppealGeneratedFragment : NavHostFragment() {
             val appealId = appealGenerator.appealId
             // todo решить, будем шарить фотку или док файл
             //sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
+            analytics.logEvent(EventsFirebase.SHARE_COMPLAIN)
             sharingManager.sharePhoto(requireContext(), ContextCompat.getDrawable(requireContext(), R.drawable.share_image))
         }
     }

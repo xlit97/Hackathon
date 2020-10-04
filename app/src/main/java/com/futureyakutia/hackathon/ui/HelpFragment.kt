@@ -1,12 +1,13 @@
 package com.futureyakutia.hackathon.ui
 
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.futureyakutia.hackathon.R
+import com.futureyakutia.hackathon.analytics.AnalyticsManager
+import com.futureyakutia.hackathon.analytics.EventsFirebase
 import com.futureyakutia.hackathon.appeal.Answer
 import com.futureyakutia.hackathon.appeal.Appeal
 import com.futureyakutia.hackathon.appeal.Question
@@ -21,6 +22,9 @@ class HelpFragment : MvpAppCompatFragment() {
 
     @Inject
     lateinit var appeal: Appeal
+
+    @Inject
+    lateinit var analytics: AnalyticsManager
 
     val questionsHARDCODED = ArrayDeque(
         listOf(
@@ -133,6 +137,7 @@ class HelpFragment : MvpAppCompatFragment() {
     }
 
     private fun navigateToShareScreen() {
+        analytics.logEvent(EventsFirebase.FINISH_COMPLAIN)
         findNavController().navigate(R.id.go_to_appeal_created)
     }
 }

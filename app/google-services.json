@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "339098572628",
+    "firebase_url": "https://hackathon-ec5db.firebaseio.com",
+    "project_id": "hackathon-ec5db",
+    "storage_bucket": "hackathon-ec5db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339098572628:android:9518397a556cfd6efe1ac1",
+        "android_client_info": {
+          "package_name": "com.futureyakutia.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339098572628-875er81d07tadmphjcr5qf4d3dj33ltk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.futureyakutia.hackathon",
+            "certificate_hash": "a7022fc864604cbe7f765c65ec5fdbb650567662"
+          }
+        },
+        {
+          "client_id": "339098572628-u4ikkprt2qj9gl6h1uc6jv07i2k3d3ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuFrS1K_NQHS-naocUn5lSQePE9On_AsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339098572628-u4ikkprt2qj9gl6h1uc6jv07i2k3d3ip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
