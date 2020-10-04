@@ -32,12 +32,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/clickable_rectangle_rounded"
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
+            android:fontFamily="@font/rubik_regular"
             tools:text="variant A"/>
         <Button
             android:id="@+id/help_layout_button_variant_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/clickable_rectangle_rounded"
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
+            android:fontFamily="@font/rubik_regular"
             tools:text="variant B"/>
     </LinearLayout>
 
@@ -64,6 +72,10 @@
         android:id="@+id/help_layout_button_continue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/clickable_rectangle_rounded"
+        android:backgroundTint="@color/purple"
+        android:textColor="@color/white"
+        android:fontFamily="@font/rubik_regular"
         android:text="Продолжить"/>
 
 </LinearLayout>

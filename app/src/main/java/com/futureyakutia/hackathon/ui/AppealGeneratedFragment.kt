@@ -45,11 +45,15 @@ class AppealGeneratedFragment : NavHostFragment() {
         appeal_created_layout_textview_button_share.setOnClickListener {
             val document = appealGenerator.generateDocx()
             appealGenerator.saveDocumentInDownloads(document)
-            val appealId = appealGenerator.appealId
-            // todo решить, будем шарить фотку или док файл
-            //sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
             analytics.logEvent(EventsFirebase.SHARE_COMPLAIN)
             sharingManager.sharePhoto(requireContext(), ContextCompat.getDrawable(requireContext(), R.drawable.share_image))
+        }
+        appeal_created_layout_textview_button_share_doc.setOnClickListener {
+            val document = appealGenerator.generateDocx()
+            appealGenerator.saveDocumentInDownloads(document)
+            val appealId = appealGenerator.appealId
+            analytics.logEvent(EventsFirebase.SHARE_COMPLAIN)
+            sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
         }
     }
 }

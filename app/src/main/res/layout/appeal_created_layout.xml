@@ -73,9 +73,21 @@
             android:background="@drawable/clickable_rectangle_rounded"
             android:backgroundTint="@color/purple"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:text="ПОДЕЛИТЬСЯ КАРТИНКОЙ"/>
+
+        <Button
+            android:id="@+id/appeal_created_layout_textview_button_share_doc"
+            android:layout_width="195dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/clickable_rectangle_rounded"
+            android:backgroundTint="@color/purple"
             android:layout_marginBottom="30dp"
             android:textColor="@color/white"
-            android:text="ПОДЕЛИТЬСЯ"/>
+            android:text="ПОДЕЛИТЬСЯ ЗАЯВЛЕНИЕМ"/>
     </LinearLayout>
 
 </ScrollView>
