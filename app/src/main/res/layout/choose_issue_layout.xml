@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightYellowBackground"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_rounded"
+        android:backgroundTint="@color/red"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="6dp">
+
+        <TextView
+            android:id="@+id/choose_issue_layout_textview_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Свидетель нарушения?"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/choose_issue_layout_textview_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выбери что случилось"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/choose_issue_layout_recycerview_issues"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            tools:layout_editor_absoluteX="6dp"
+            tools:listitem="@layout/issue_item" />
+
+        <Button
+            android:id="@+id/choose_issue_layout_button_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="26dp"
+            android:background="@drawable/issue_active"
+            android:paddingHorizontal="55dp"
+            android:paddingVertical="12dp"
+            android:text="Продолжить"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</FrameLayout>

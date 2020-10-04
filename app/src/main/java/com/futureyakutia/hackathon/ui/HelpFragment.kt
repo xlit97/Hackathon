@@ -104,24 +104,25 @@ class HelpFragment : MvpAppCompatFragment() {
     }
 
     private fun sendAnswer(answer: Answer) {
-        when(currentQuestion) {
+        when (currentQuestion) {
             Question.CommitmentDate -> {
-                appeal.animalAbuse.commitmentDate = (answer as Answer.Write).input
+                appeal.commitmentDate = (answer as Answer.Write).input
             }
             Question.CommitmentPlace -> {
-                appeal.animalAbuse.commitmentPlace = (answer as Answer.Write).input
+                appeal.commitmentPlace = (answer as Answer.Write).input
             }
             Question.DoYouKnowSuspect -> {
-                questionsHARDCODED.find { it is Question.EnterSuspectName }?.isEnabled = (answer as Answer.Choice).triggerAnswer
+                questionsHARDCODED.find { it is Question.EnterSuspectName }?.isEnabled =
+                    (answer as Answer.Choice).triggerAnswer
             }
             Question.EnterSuspectName -> {
-                appeal.animalAbuse.suspect = (answer as Answer.Write).input
+                appeal.suspect = (answer as Answer.Write).input
             }
             Question.CaseDescription -> {
-                appeal.animalAbuse.caseDescriptionByUser = (answer as Answer.Write).input
+                appeal.caseDescriptionByUser = (answer as Answer.Write).input
             }
             Question.ChildrenAreWitnesses -> {
-                appeal.animalAbuse.childrenWitnesses = (answer as Answer.Choice).triggerAnswer
+                appeal.childrenWitnesses = (answer as Answer.Choice).triggerAnswer
             }
         }
         if (questionsHARDCODED.isNotEmpty()) {

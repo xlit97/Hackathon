@@ -39,7 +39,7 @@ class AppealGeneratedFragment : NavHostFragment() {
         appeal_created_layout_textview_button_share.setOnClickListener {
             val document = appealGenerator.generateDocx()
             appealGenerator.saveDocumentInDownloads(document)
-            val appealId = appealGenerator.getAppealId()
+            val appealId = appealGenerator.appealId
             // todo решить, будем шарить фотку или док файл
             //sharingManager.shareFile(requireContext(), "appeal_$appealId.docx")
             sharingManager.sharePhoto(requireContext(), ContextCompat.getDrawable(requireContext(), R.drawable.share_image))

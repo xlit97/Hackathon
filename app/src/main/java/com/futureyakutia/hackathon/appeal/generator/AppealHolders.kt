@@ -15,6 +15,7 @@ enum class AppealHolders(val holder: String) {
     CASE_DESCRIPTION("casedescription"),
     CHILDREN_ARE_WITNESSES("childrenarewitnesses"),
     SUSPECT("suspect"),
+    LEGAL_REASONS("legalreasons"),
 
     // Footer
     APPEAL_DATE("appealdate"),
