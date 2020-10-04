@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.futureyakutia.hackathon.R
 import com.futureyakutia.hackathon.analytics.AnalyticsManager
+import com.futureyakutia.hackathon.analytics.EventParams
 import com.futureyakutia.hackathon.analytics.EventsFirebase
 import com.futureyakutia.hackathon.appeal.Appeal
 import com.futureyakutia.hackathon.appeal.clauses.LawClause
@@ -41,16 +42,21 @@ class ChooseIssueFragment : MvpAppCompatFragment() {
         choose_issue_layout_recycerview_issues.adapter = adapter
         adapter.setData(LawClause.values().toList())
         choose_issue_layout_button_continue.setOnClickListener {
-            val issues = adapter.getAllSelectedItems()
-            if (issues.isNotEmpty()) {
+            val selectedIssues = adapter.getAllSelectedItems()
+            if (selectedIssues.isNotEmpty()) {
                 appeal.clearAllIssues()
-                appeal.addAllIssues(issues)
-                analytics.logEvent(EventsFirebase.START_COMPLAIN)
+                appeal.addAllIssues(selectedIssues)
+                trackSelectedIssues(selectedIssues)
                 findNavController().navigate(R.id.go_to_questions)
             } else {
                 Toast.makeText(requireContext(), "Вы не выбрали проблему", Toast.LENGTH_SHORT)
                     .show()
             }
         }
+    }
+
+    private fun trackSelectedIssues(selectedIssues: List<LawClause>) {
+        val params = hashMapOf(EventParams.ISSUES to selectedIssues.map { it.commonName }.toString())
+        analytics.logEvent(EventsFirebase.START_COMPLAIN, params)
     }
 }

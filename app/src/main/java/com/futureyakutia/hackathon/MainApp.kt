@@ -1,10 +1,14 @@
 package com.futureyakutia.hackathon
 
 import android.app.Application
+import com.futureyakutia.hackathon.analytics.AnalyticsManager
+import com.futureyakutia.hackathon.analytics.EventsFirebase
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
 @HiltAndroidApp
-class HackathonApp : Application() {
+class MainApp : Application() {
+
     companion object {
         init {
             System.setProperty(
@@ -20,5 +24,13 @@ class HackathonApp : Application() {
                 "com.fasterxml.aalto.stax.EventFactoryImpl"
             )
         }
+    }
+
+    @Inject
+    lateinit var analytics: AnalyticsManager
+
+    override fun onCreate() {
+        super.onCreate()
+        analytics.logEvent(EventsFirebase.APP_START)
     }
 }
