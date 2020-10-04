@@ -29,6 +29,7 @@ class HelpFragment : MvpAppCompatFragment() {
     val questionsHARDCODED = ArrayDeque(
         listOf(
             Question.CommitmentDate,
+            Question.CommitmentTime,
             Question.CommitmentPlace,
             Question.DoYouKnowSuspect,
             Question.EnterSuspectName,

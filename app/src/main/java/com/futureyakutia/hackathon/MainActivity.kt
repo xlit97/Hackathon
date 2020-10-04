@@ -6,6 +6,8 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,6 +38,19 @@ class MainActivity : AppCompatActivity() {
         if (checkWritePermission()) {
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE_WRITE);
+        }
+        plus.setOnClickListener {
+            buttons_layout.isVisible = !buttons_layout.isVisible
+            if (buttons_layout.isVisible) {
+                plus.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_plus_close))
+            } else {
+                plus.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_plus))
+            }
+        }
+        report_button.setOnClickListener {
+            buttons_layout.isVisible = false
+            plus.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_plus))
+            navController.navigate(R.id.go_to_help)
         }
 
     }
